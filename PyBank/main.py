@@ -40,6 +40,14 @@ def averageChange(numbers, dates):
     print(f"Greatest Increase in Profits: {increaseDate} (${maxIncrease})") 
     print(f"Greatest Decrease in Profits: {decreaseDate} (${maxDecrease})")
 
+# Prints summary of data when called
+def printSummary():
+    print("Financial Analysis")
+    print("------------------")
+    print(f"Total Months: {months}")
+    print(f"Total: ${totalProfitLoss}")
+    averageChange(profitLossList, dateList)
+
 # Path to data in csv file
 budgetDataPath = os.path.join("Resources", "budget_data.csv")
 
@@ -53,9 +61,4 @@ with open(budgetDataPath, newline="") as csvfile:
         totalProfitLoss += profitLoss
         months += 1
 
-# Printing summary of data
-print("Financial Analysis")
-print("------------------")
-print(f"Total Months: {months}")
-print(f"Total: ${totalProfitLoss}")
-averageChange(profitLossList, dateList)
+printSummary()
